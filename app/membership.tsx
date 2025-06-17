@@ -48,7 +48,7 @@ interface FormData {
   phone: string;
   password: string;
   confirmPassword: string;
-  homeAddress: string;
+  zipCode: string;
   address: string;
   detailAddress: string;
   isElderly: boolean;
@@ -73,7 +73,7 @@ const SignupPage: React.FC = () => {
     phone: "",
     password: "",
     confirmPassword: "",
-    homeAddress: "",
+    zipCode: "",
     address: "",
     detailAddress: "",
     isElderly: false,
@@ -189,7 +189,7 @@ const SignupPage: React.FC = () => {
       formData.phone,
       formData.password,
       formData.confirmPassword,
-      formData.homeAddress,
+      formData.zipCode,
       formData.address,
       formData.detailAddress,
       formData.selectedService,
@@ -214,7 +214,7 @@ const SignupPage: React.FC = () => {
       birth: formData.birth,
       phone: formData.phone,
       password: formData.password,
-      zipCode: formData.homeAddress,
+      zipCode: formData.zipCode,
       address: formData.address,
       detailAddress: formData.detailAddress,
       isElderly: formData.isElderly,
@@ -418,7 +418,7 @@ const SignupPage: React.FC = () => {
                 <TextInput
                   style={[styles.textInput, styles.zipCodeInput]}
                   placeholder="우편번호"
-                  value={formData.homeAddress}
+                  value={formData.zipCode}
                   editable={false}
                   placeholderTextColor="#9CA3AF"
                 />
@@ -466,7 +466,7 @@ const SignupPage: React.FC = () => {
                 label="노인 이용자입니다"
               />
 
-              {/* 요양원/보호센터 정보 */} 
+              {/* 요양원/보호센터 정보 */}
               {formData.isElderly && (
                 <View style={styles.elderlySection}>
                   <Text style={styles.label}>
