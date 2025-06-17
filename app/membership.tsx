@@ -44,11 +44,11 @@ interface CareCenter {
 
 interface FormData {
   name: string;
-  birthDate: Date | null;
+  birth: Date | null;
   phone: string;
   password: string;
   confirmPassword: string;
-  zipCode: string;
+  homeAddress: string;
   address: string;
   detailAddress: string;
   isElderly: boolean;
@@ -69,11 +69,11 @@ const SignupPage: React.FC = () => {
   
   const [formData, setFormData] = useState<FormData>({
     name: "",
-    birthDate: null,
+    birth: null,
     phone: "",
     password: "",
     confirmPassword: "",
-    zipCode: "",
+    homeAddress: "",
     address: "",
     detailAddress: "",
     isElderly: false,
@@ -173,7 +173,7 @@ const SignupPage: React.FC = () => {
   const onDateChange = (event: any, selectedDate?: Date): void => {
     setShowDatePicker(false);
     if (selectedDate) {
-      handleInputChange("birthDate", selectedDate);
+      handleInputChange("birth", selectedDate);
     }
   };
 
@@ -185,11 +185,11 @@ const SignupPage: React.FC = () => {
   const isFormValid = (): boolean => {
     const requiredFields = [
       formData.name,
-      formData.birthDate,
+      formData.birth,
       formData.phone,
       formData.password,
       formData.confirmPassword,
-      formData.zipCode,
+      formData.homeAddress,
       formData.address,
       formData.detailAddress,
       formData.selectedService,
@@ -211,10 +211,10 @@ const SignupPage: React.FC = () => {
   const prepareSignupData = () => {
     const signupData = {
       name: formData.name,
-      birthDate: formData.birthDate,
+      birth: formData.birth,
       phone: formData.phone,
       password: formData.password,
-      zipCode: formData.zipCode,
+      zipCode: formData.homeAddress,
       address: formData.address,
       detailAddress: formData.detailAddress,
       isElderly: formData.isElderly,
@@ -335,14 +335,14 @@ const SignupPage: React.FC = () => {
                 activeOpacity={0.7}
               >
                 <Calendar size={16} color="#6B7280" style={styles.dateIcon} />
-                <Text style={[styles.dateText, formData.birthDate && styles.dateTextSelected]}>
-                  {formatDate(formData.birthDate)}
+                <Text style={[styles.dateText, formData.birth && styles.dateTextSelected]}>
+                  {formatDate(formData.birth)}
                 </Text>
               </TouchableOpacity>
 
               {showDatePicker && (
                 <DateTimePicker
-                  value={formData.birthDate || new Date()}
+                  value={formData.birth || new Date()}
                   mode="date"
                   display="default"
                   onChange={onDateChange}
@@ -418,7 +418,7 @@ const SignupPage: React.FC = () => {
                 <TextInput
                   style={[styles.textInput, styles.zipCodeInput]}
                   placeholder="우편번호"
-                  value={formData.zipCode}
+                  value={formData.homeAddress}
                   editable={false}
                   placeholderTextColor="#9CA3AF"
                 />
@@ -466,7 +466,7 @@ const SignupPage: React.FC = () => {
                 label="노인 이용자입니다"
               />
 
-              {/* 요양원/보호센터 정보 */}
+              {/* 요양원/보호센터 정보 */} 
               {formData.isElderly && (
                 <View style={styles.elderlySection}>
                   <Text style={styles.label}>
