@@ -637,12 +637,12 @@ const MainPage: React.FC<MainPageProps> = () => {
 
               <TouchableOpacity
                   className="items-center py-3 px-4"
-                  onPress={() => navigateToScreen('Notifications')}
+                  onPress={() => navigateToScreen('MyLocationNotifications')}
               >
                 <View className="bg-gray-50 p-2 rounded-full">
                   <BarChart size={24} color="#6b7280" />
                 </View>
-                <Text className="text-xs text-gray-600 mt-2">알림</Text>
+                <Text className="text-xs text-gray-600 mt-2">내 위치</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
